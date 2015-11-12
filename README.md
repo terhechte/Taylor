@@ -16,9 +16,9 @@ import Taylor
 
 let server = Taylor.Server()
 
-server.get("/") { req, res in
+server.get("/") { req, res, callback in
     res.bodyString = "Hello, world!"
-    return .Send
+    callback(.Send(req, res))
 }
 
 let port = 3002
